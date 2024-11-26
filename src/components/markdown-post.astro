@@ -1,0 +1,92 @@
+---
+import { render } from "astro:content";
+import { MISC } from "@/config";
+import { getUniqueLowerCaseTagMap } from "@/utils/post";
+import DateRelatedTags from "./date-related-tags";
+import LabelTag from "./label-tag.tsx";
+import LicenseTag from "./license-tag";
+import Prose from "./prose.astro";
+import TocCard from "./toc-card";
+
+const { lang, post, headings } = Astro.props;
+const { Content } = await render(post);
+
+let licenseEnabled = MISC.license?.enabled;
+if (post.data.license && post.data.license === "none") {
+  licenseEnabled = false;
+}
+const license = post.data.license || MISC.license.default.name;
+const licenseLink = post.data.licenseLink || MISC.license.default.link;
+---
+
+<article>
+  <h1 class="text-dracula-pink font-black text-4xl">{post.data.title}</h1>
+
+  <div class="flex flex-wrap gap-2 mt-4">
+    <DateRelatedTags
+      lang={lang}
+      publishedAt={post.data.date}
+      updatedAt={post.data.updated}
+    />
+    {
+      licenseEnabled && (
+        <LicenseTag lang={lang} license={license} link={licenseLink} />
+      )
+    }
+    {
+      Array.from(getUniqueLowerCaseTagMap(post.data.tags).keys()).map((tag) => (
+        <LabelTag lang={lang} label={tag} type="link" />
+      ))
+    }
+  </div>
+
+  {
+    headings && headings.length > 0 && (
+      <div class="block 2xl:hidden mt-10">
+        <TocCard headings={headings} lang={lang} client:load />
+      </div>
+    )
+  }
+
+  <div class="mt-10">
+    <Prose>
+      <Content />
+    </Prose>
+  </div>
+</article>
+
+<script>
+  let copyButtonLabel = "Copy";
+  let codeBlocks = Array.from(document.querySelectorAll("pre"));
+
+  for (let codeBlock of codeBlocks) {
+    let wrapper = document.createElement("div");
+    wrapper.style.position = "relative";
+    let copyButton = document.createElement("button");
+    copyButton.className = "copy-code";
+    copyButton.innerHTML = copyButtonLabel;
+
+    codeBlock.setAttribute("tabindex", "0");
+    codeBlock.appendChild(copyButton);
+
+    codeBlock.parentNode!.insertBefore(wrapper, codeBlock);
+    wrapper.appendChild(codeBlock);
+
+    copyButton.addEventListener("click", async () => {
+      await copyCode(codeBlock, copyButton);
+    });
+  }
+
+  async function copyCode(block: HTMLElement, button: HTMLElement) {
+    let code = block.querySelector("code");
+    let text = code?.innerText || "";
+
+    await navigator.clipboard.writeText(text);
+
+    button.innerText = "Copied";
+
+    setTimeout(() => {
+      button.innerText = copyButtonLabel;
+    }, 1000);
+  }
+</script>

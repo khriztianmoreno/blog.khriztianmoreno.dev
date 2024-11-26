@@ -1,0 +1,28 @@
+---
+import BaseLayout from "@/layouts/base-layout.astro";
+import { type Lang, ui, useTranslatedPath, useTranslations } from "@/utils/i18n";
+
+export function getStaticPaths() {
+  return Object.keys(ui).map((lang) => ({
+    params: { lang: lang as Lang },
+  }));
+}
+
+const { lang } = Astro.params;
+const t = useTranslations(lang as Lang);
+const translatedPath = useTranslatedPath(lang as Lang);
+---
+
+<BaseLayout title="404">
+  <div class="w-full flex flex-col items-center justify-center mt-32">
+    <h1 class="text-9xl mb-5 font-black text-dracula-pink font-mono">404</h1>
+    <p class="text-4xl font-bold">{t("pageNotFound")}</p>
+    <a
+      href={translatedPath("/")}
+      class="text-lg underline underline-offset-4 text-dracula-cyan mt-10
+                hover:text-dracula-purple transition-colors"
+    >
+      {t("goBackHome")}
+    </a>
+  </div>
+</BaseLayout>

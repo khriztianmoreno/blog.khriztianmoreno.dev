@@ -1,0 +1,38 @@
+@import "@fontsource-variable/fira-code";
+
+del {
+  @apply text-dracula-blue;
+}
+
+code {
+  @apply font-code break-all;
+}
+
+pre {
+  @apply bg-dracula-dark/30 rounded-none !important;
+}
+
+.copy-code {
+  @apply absolute top-0 right-0 bg-dracula-dark/80 hover:bg-dracula-dark px-2 py-1 text-xs text-dracula-light;
+}
+
+::selection {
+  @apply bg-dracula-blue;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: theme("colors.dracula-purple.400");
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: theme("colors.dracula-purple.DEFAULT");
+}

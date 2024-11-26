@@ -1,0 +1,5 @@
+---
+import { defaultLang, useTranslatedPath } from "@/utils/i18n";
+const translatedPath = useTranslatedPath(defaultLang);
+return Astro.rewrite(translatedPath("/"));
+---

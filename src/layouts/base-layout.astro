@@ -1,0 +1,132 @@
+---
+import { ViewTransitions } from "astro:transitions";
+
+import "@/styles/global.css";
+import "@/styles/mathjax.css";
+import "@/styles/rehype-github-alerts.css";
+import Moon from "@/components/icons/moon.astro";
+import Rss from "@/components/icons/rss.astro";
+import LanguagePicker from "@/components/language-picker.astro";
+
+import {
+  getLangFromUrl,
+  type ui,
+  useTranslatedPath,
+  useTranslations,
+} from "@/utils/i18n";
+import { SITE } from "../config";
+
+const { title } = Astro.props;
+const [lang] = getLangFromUrl(Astro.url.pathname);
+const t = useTranslations(lang as keyof typeof ui);
+const translatePath = useTranslatedPath(lang as keyof typeof ui);
+const pageTitle = title
+  ? `${title} | ${SITE.title}`
+  : `${SITE.title} | ${SITE.description}`;
+---
+
+<html lang={lang} class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={SITE.title}
+      href={new URL("rss.xml", SITE.url)}
+    />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={SITE.description} />
+    <meta name="msvalidate.01" content={SITE.searchEngine.bing} />
+    <meta name="baidu-site-verification" content={SITE.searchEngine.baidu} />
+    <meta name="sogou_site_verification" content={SITE.searchEngine.sogou} />
+    <meta
+      name="360-site-verification"
+      content={SITE.searchEngine.threeSixZero}
+    />
+    <script
+      is:inline
+      type="text/partytown"
+      src="https://cloud.umami.is/script.js"
+      data-website-id={SITE.analytics.umami.id}></script>
+    <title>{pageTitle}</title>
+    <ViewTransitions />
+  </head>
+  <body
+    class="bg-dracula-darker text-dracula-light mx-4 md:mx-auto max-w-3xl py-12"
+  >
+    <header
+      class="mb-14 flex flex-col gap-2 justify-center md:flex-row md:justify-between md:items-center"
+    >
+      <div class="flex gap-2 itmes-center justify-center">
+        <a
+          href={translatePath("/")}
+          class="flex items-center justify-center md:justify-start gap-2 font-black text-2xl
+          text-dracula-light hover:text-dracula-purple-400 transition"
+        >
+          🧑🏻‍💻
+          <h1 class="font-black text-2xl">
+            {SITE.title}
+          </h1>
+        </a>
+        <a
+          href="/rss.xml"
+          class="hover:text-dracula-orange transition"
+          aria-label="RSS Feed"
+        >
+          <Rss class="w-6 h-6" />
+        </a>
+      </div>
+      <div
+        class="flex justify-center md:justify-end items-center gap-4 text-dracula-light"
+      >
+        <a
+          class="hover:text-dracula-green-600 transition underline underline-offset-4"
+          href={translatePath("/")}
+        >
+          {t("nav.home")}
+        </a>
+        <a
+          class="hover:text-dracula-green-600 transition underline underline-offset-4"
+          href={translatePath("/tags")}
+        >
+          {t("nav.tags")}
+        </a>
+        <a
+          class="hover:text-dracula-green-600 transition underline underline-offset-4"
+          href={translatePath("/about")}
+        >
+          {t("nav.about")}
+        </a>
+        |
+        <LanguagePicker />
+      </div>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="mt-14 flex flex-col items-center gap-2 w-full">
+      <p class="text-lg">
+        {SITE.title}
+      </p>
+      <p class="text-sm">
+        Powered by
+        <a
+          href="https://astro.build/"
+          target="_blank"
+          rel="nofollow"
+          class="hover:text-dracula-pink transition">Astro</a
+        >
+        {" & "}
+        <a
+          href="https://github.com/BlockLune/astro-dracula-blog/"
+          target="_blank"
+          rel="nofollow"
+          class="hover:text-dracula-pink transition">AstroDraculaBlog</a
+        >
+      </p>
+    </footer>
+  </body>
+</html>

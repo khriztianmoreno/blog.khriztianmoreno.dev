@@ -1,0 +1,47 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import MarkdownPost from "@/components/markdown-post.astro";
+import TocCard from "@/components/toc-card.tsx";
+import BaseLayout from "@/layouts/base-layout.astro";
+import { type Lang, defaultLang, getLangFromUrl, ui } from "@/utils/i18n";
+import { classifyByLangs } from "@/utils/post";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+  const classified = classifyByLangs(posts);
+
+  const paths = [];
+  for (const lang of Object.keys(ui)) {
+    for (const pureSlug of classified.keys()) {
+      const entry = await getEntry("posts", `${lang}/${pureSlug}`);
+      const headings = (await entry?.render())?.headings || [];
+      paths.push({
+        params: { lang, slug: pureSlug },
+        props: { post: entry, headings },
+      });
+    }
+  }
+  return paths;
+}
+
+const { post, headings } = Astro.props;
+const { lang, slug } = Astro.params;
+const [currentLang] = getLangFromUrl(Astro.url.pathname);
+
+// TODO: support more langs
+if (!post) {
+  if (currentLang !== defaultLang) {
+    return Astro.rewrite(`/${defaultLang}/posts/${slug}`);
+  }
+  return Astro.rewrite(`/en/posts/${slug}`);
+}
+---
+
+<BaseLayout title={post.data.title}>
+  <div class="relative">
+    <div class="hidden 2xl:block fixed right-10 top-10 w-72">
+      <TocCard headings={headings} lang={lang as Lang} client:load />
+    </div>
+    <MarkdownPost post={post} lang={lang} headings={headings} />
+  </div>
+</BaseLayout>

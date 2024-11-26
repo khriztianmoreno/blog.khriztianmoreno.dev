@@ -1,0 +1,24 @@
+---
+import { getCollection } from "astro:content";
+import { defaultLang } from "@/utils/i18n";
+import { getLangFromSlug, getPureSlugFromSlug, makeUniqueByLang } from "@/utils/post";
+
+export async function getStaticPaths() {
+  const postsWithAbbrlink = await getCollection("posts", (post) => post.data.abbrlink);
+
+  const uniquePosts = makeUniqueByLang(postsWithAbbrlink, defaultLang);
+  const paths = uniquePosts.map((post) => {
+    const lang = getLangFromSlug(post.slug);
+    const pureSlug = getPureSlugFromSlug(post.slug);
+    return {
+      params: { abbrlink: post.data.abbrlink },
+      props: { to: `${lang}/posts/${pureSlug}` },
+    };
+  });
+
+  return paths;
+}
+
+const { to } = Astro.props;
+return Astro.rewrite(to);
+---

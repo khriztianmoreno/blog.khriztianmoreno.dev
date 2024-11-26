@@ -1,0 +1,38 @@
+---
+import { getCollection } from "astro:content";
+import LabelTag from "@/components/label-tag.tsx";
+import PostStack from "@/components/post-stack.tsx";
+import BaseLayout from "@/layouts/base-layout.astro";
+import { type Lang, ui } from "@/utils/i18n";
+import { useTranslations } from "@/utils/i18n";
+import { getSnapshots, getUniqueLowerCaseTagMap, makeUniqueByLang } from "@/utils/post";
+
+export const getStaticPaths = async () => {
+  const paths = await Promise.all(
+    Object.keys(ui).map(async (lang) => {
+      const posts = await getCollection("posts");
+      const uniquePosts = makeUniqueByLang(posts, lang as Lang);
+      const tags = getUniqueLowerCaseTagMap(uniquePosts.flatMap((uniquePost) => uniquePost.data.tags));
+      return Array.from(tags.keys()).map((tag) => ({ params: { lang, tag } }));
+    }),
+  );
+  return paths.flat();
+};
+
+const { lang, tag } = Astro.params;
+const filteredPosts = await getCollection("posts", (post) => getUniqueLowerCaseTagMap(post.data.tags).get(tag));
+const filteredSnapshots = await getSnapshots(filteredPosts, lang as Lang);
+const t = useTranslations(lang as Lang);
+---
+
+<BaseLayout title={`${t("postsWithTag")} ${tag}`}>
+  <article>
+    <h1
+      class="text-4xl font-black text-dracula-light mb-10 mx-auto leading-loose"
+    >
+      {t("postsWithTag")}
+      <LabelTag lang={lang as Lang} label={tag} size="large" />
+    </h1>
+    <PostStack lang={lang as Lang} snapshots={filteredSnapshots} client:load />
+  </article>
+</BaseLayout>

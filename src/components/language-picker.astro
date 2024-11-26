@@ -1,0 +1,26 @@
+---
+import { type Lang, languages } from "@/utils/i18n";
+import { getLangFromUrl, useTranslatedPath } from "@/utils/i18n";
+
+const [activeLang, urlWithoutLang] = getLangFromUrl(Astro.url.pathname);
+const translatePath = useTranslatedPath(activeLang as Lang);
+---
+
+<ul class="flex gap-2">
+  {
+    Object.entries(languages).map(([lang, label]) => (
+      <li>
+        <a
+          href={translatePath(`/${urlWithoutLang}`, lang)}
+          class={
+            lang === activeLang
+              ? "underline underline-offset-4 text-dracula-purple"
+              : "underline underline-offset-4 text-dracula-purple/80 hover:text-dracula-purple transition"
+          }
+        >
+          {label}
+        </a>
+      </li>
+    ))
+  }
+</ul>

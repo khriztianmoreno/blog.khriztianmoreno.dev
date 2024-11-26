@@ -1,0 +1,28 @@
+---
+import { getEntry, render } from "astro:content";
+import BusinessCard from "@/components/business-card.tsx";
+import Prose from "@/components/prose.astro";
+import BaseLayout from "@/layouts/base-layout.astro";
+import { type Lang, ui, useTranslations } from "@/utils/i18n";
+
+const { lang } = Astro.props;
+const about = await getEntry("info", `${lang}/about`);
+const { Content } = await render(about);
+const t = useTranslations(lang as Lang);
+
+export function getStaticPaths() {
+  return Object.keys(ui).map((lang) => ({
+    params: { lang: lang as Lang },
+    props: { lang: lang as Lang },
+  }));
+}
+---
+
+<BaseLayout title={t("nav.about")}>
+  <div class="flex mb-12">
+    <BusinessCard client:load />
+  </div>
+  <Prose>
+    <Content />
+  </Prose>
+</BaseLayout>

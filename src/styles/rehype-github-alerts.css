@@ -1,0 +1,73 @@
+@import "tailwindcss/base";
+
+:root {
+  --github-alert-default-color: theme("colors.dracula-darker.DEFAULT");
+  --github-alert-note-color: theme("colors.dracula-blue.DEFAULT");
+  --github-alert-tip-color: theme("colors.dracula-green.DEFAULT");
+  --github-alert-important-color: theme("colors.dracula-purple.DEFAULT");
+  --github-alert-warning-color: theme("colors.dracula-orange.DEFAULT");
+  --github-alert-caution-color: theme("colors.dracula-red.DEFAULT");
+}
+
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  border-left: 0.25em solid var(--github-alert-default-color);
+}
+
+.markdown-alert > :first-child {
+  margin-top: 0;
+}
+
+.markdown-alert > :last-child {
+  margin-bottom: 0;
+}
+
+.markdown-alert-note {
+  border-left-color: var(--github-alert-note-color);
+}
+
+.markdown-alert-tip {
+  border-left-color: var(--github-alert-tip-color);
+}
+
+.markdown-alert-important {
+  border-left-color: var(--github-alert-important-color);
+}
+
+.markdown-alert-warning {
+  border-left-color: var(--github-alert-warning-color);
+}
+
+.markdown-alert-caution {
+  border-left-color: var(--github-alert-caution-color);
+}
+
+.markdown-alert-title {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+
+.markdown-alert-title > svg {
+  margin-right: 8px;
+}
+
+.markdown-alert-note .markdown-alert-title {
+  color: var(--github-alert-note-color);
+}
+
+.markdown-alert-tip .markdown-alert-title {
+  color: var(--github-alert-tip-color);
+}
+
+.markdown-alert-important .markdown-alert-title {
+  color: var(--github-alert-important-color);
+}
+
+.markdown-alert-warning .markdown-alert-title {
+  color: var(--github-alert-warning-color);
+}
+
+.markdown-alert-caution .markdown-alert-title {
+  color: var(--github-alert-caution-color);
+}
