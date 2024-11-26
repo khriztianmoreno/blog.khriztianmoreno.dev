@@ -4,14 +4,8 @@ export const SITE = {
   url: "https://blog.khriztianmoreno.dev",
   analytics: {
     umami: {
-      id: "ab70a625-ed64-484a-9c34-803e1c598bf9",
+      id: "b6c5d775-fa71-4050-a2b5-dc2396a00cd8",
     },
-  },
-  searchEngine: {
-    bing: "90E919A44E934714DF5640B4D8631CC9",
-    baidu: "codeva-IdRrdx3ejJ",
-    sogou: "d61GLZA6rw",
-    threeSixZero: "3df8dc4fd80a1899f65048a77e408c40",
   },
 };
 
