@@ -47,12 +47,6 @@ export default defineConfig({
             list: true,
           },
           {
-            type: "string",
-            name: "abbrlink",
-            label: "Abbreviated Link",
-            required: false,
-          },
-          {
             type: "datetime",
             name: "date",
             label: "Publication Date",
@@ -89,12 +83,6 @@ export default defineConfig({
             name: "tags",
             label: "Tags",
             list: true,
-          },
-          {
-            type: "string",
-            name: "abbrlink",
-            label: "Abbreviated Link",
-            required: false,
           },
           {
             type: "datetime",
