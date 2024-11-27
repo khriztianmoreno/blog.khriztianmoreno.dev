@@ -9,6 +9,8 @@ updated: 2022-06-12 15:34:36
 
 Today I'll give you a practical introduction to the module systems we use when building libraries in JavaScript. As a web application or library grows and more features are added, modularizing the code improves readability and maintainability. This quick guide will give you an incisive look at the options available for creating and consuming modules in JavaScript.
 
+![JavaScript Module Systems](https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F276byz01crxajk5sxvyq.png)
+
 If you've ever wondered what the pros and cons of AMD, ESM, or CommonJS are, this guide will give you the information you need to confidently choose among all the options.
 
 ## A history of JavaScript modules
