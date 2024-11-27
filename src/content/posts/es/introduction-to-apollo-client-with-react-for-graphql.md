@@ -1,12 +1,12 @@
 ---
-title: Introduction to Apollo Client with React for GraphQL
+title: Introducción a Apollo Client con React para GraphQL
 tags:
   - javascript
   - react
   - graphql
   - tutorial
-date: 2020-01-30 16:42:17
-updated: 2020-01-30 16:42:17
+date: 2020-01-30T16:42:17.000Z
+updated: 2020-01-30T16:42:17.000Z
 ---
 
 GraphQL se ha vuelto popular recientemente y es probable que reemplace la API Rest. En este tutorial, utilizaremos el Cliente Apollo para comunicarnos con la API GraphQL de GitHub. Integraremos Apollo Client con ReactJS, pero también puede usarlo con otras plataformas (VueJS, Angular, etc).
@@ -21,7 +21,7 @@ Una vez que tengamos la aplicación de react lista para funcionar, lo siguiente 
 
 La siguiente línea instala todos los módulos requeridos.
 
-```bash
+```shell
 npm i -S apollo-client-preset react-apollo graphql-tag graphql
 ```
 
@@ -31,11 +31,11 @@ Ahora podemos proporcionar a nuestro componente un cliente.
 
 Puede proporcionar un cliente en cualquier lugar de la jerarquía de componentes de React. Sin embargo, siempre es una buena práctica proporcionar el componente, envolviendo toda su aplicación, con el cliente.
 
-![Index.js](https://cdn-images-1.medium.com/max/2424/1*eXHU29eIA6QxycMizLiGIg.png)_Index.js_
+![Index.js](https://cdn-images-1.medium.com/max/2424/1*eXHU29eIA6QxycMizLiGIg.png)*Index.js*
 
-Arriba puede ver que definimos el uri para GitHub y también usamos un token específico para losheaders. Deberías usar tu propio token generado desde GitHub. Así que no olvides reemplazarlo en YOUR_TOKEN.
+Arriba puede ver que definimos el uri para GitHub y también usamos un token específico para losheaders. Deberías usar tu propio token generado desde GitHub. Así que no olvides reemplazarlo en YOUR\_TOKEN.
 
-_Puedes revisar en este enlace [como obtener un API Token](https://blog.github.com/2013-05-16-personal-api-tokens/)._
+*Puedes revisar en este enlace [como obtener un API Token](https://blog.github.com/2013-05-16-personal-api-tokens/).*
 
 Para este ejemplo, definimos el token API en el lado del cliente. Sin embargo, no debes revelar tu API token públicamente. Por lo tanto, siempre es bueno mantenerlo en el servidor abstraído del lado del cliente.
 
@@ -51,9 +51,9 @@ Una vez que abre GraphiQL, necesita configurar **GraphQL Endpoint** y **HTTP Hea
 
 **Header Name:** Authorization
 
-**Header Value:** Bearer YOUR_TOKEN
+**Header Value:** Bearer YOUR\_TOKEN
 
-Por supuesto, debes reemplazar **YOUR_TOKEN** con tu propio token. No olvide incluir el **Bearer** delante de su token cuando defina el **valor de encabezado** .
+Por supuesto, debes reemplazar **YOUR\_TOKEN** con tu propio token. No olvide incluir el **Bearer** delante de su token cuando defina el **valor de encabezado** .
 
 Si no desea descargar una aplicación, también puede utilizar [GraphQL API Explorer](https://developer.github.com/v4/explorer/) para GitHub.
 
@@ -65,7 +65,7 @@ La [documentación de la API GraphQL de GitHub](https://developer.github.com/v4/
 
 Además, la mejor parte de la aplicación GraphiQL es que le da acceso a la documentación de las consultas dentro de la aplicación. Puede ver la barra lateral a la derecha llamada **Docs**.
 
-![GraphiQL — Side Bar Docs](https://cdn-images-1.medium.com/max/4064/1*MkBxnS-YSZhtgTN5TUpeCA.png)_GraphiQL — Side Bar Docs_
+![GraphiQL — Side Bar Docs](https://cdn-images-1.medium.com/max/4064/1*MkBxnS-YSZhtgTN5TUpeCA.png)*GraphiQL — Side Bar Docs*
 
 Comencemos con la consulta más simple:
 
@@ -77,7 +77,7 @@ query {
 }
 ```
 
-Esta consulta devuelve la información de inicio de sesión del _viewer_. En este caso, el _viewer_ es usted ya que usó su propio token de API.
+Esta consulta devuelve la información de inicio de sesión del *viewer*. En este caso, el *viewer* es usted ya que usó su propio token de API.
 
 En este tutorial, no daré información detallada sobre consultas. Siempre puede consultar la documentación e intentar consultas en las herramientas GraphQL para ver si está obteniendo los datos correctos.
 
@@ -115,15 +115,15 @@ import { graphql } from "react-apollo";
 
 Aquí asignamos nuestra consulta a una variable constante, pero aún no hemos definido el parámetro dename.
 
-![GraphQL Query](https://cdn-images-1.medium.com/max/2256/1*UgyX4_ZY8H7gmrsoxCb2Kg.png)_GraphQL Query_
+![GraphQL Query](https://cdn-images-1.medium.com/max/2256/1*UgyX4_ZY8H7gmrsoxCb2Kg.png)*GraphQL Query*
 
 Ahora envolvemos nuestro componente con graphql HOC (Higher Order Component) para definir los parámetros de consulta, ejecutar la consulta y luego pasar el resultado como accesorios a nuestro componente.
 
-![graphql HOC](https://cdn-images-1.medium.com/max/2000/1*kIbiA76ZmEy2LIo6NfDILQ.png)_graphql HOC_
+![graphql HOC](https://cdn-images-1.medium.com/max/2000/1*kIbiA76ZmEy2LIo6NfDILQ.png)*graphql HOC*
 
 A continuación está la versión final de nuestro componente.
 
-![App.js](https://cdn-images-1.medium.com/max/2256/1*YxwbN-7T1G46m4WBldicIw.png)_App.js_
+![App.js](https://cdn-images-1.medium.com/max/2256/1*YxwbN-7T1G46m4WBldicIw.png)*App.js*
 
 Tenga en cuenta que no exportamos el componente de la App real, sino el componente empaquetado, que es AppWithData.
 
@@ -147,13 +147,13 @@ Para hacer eso, simplemente usaremos la información de loading provista dentro 
 
 Si la loading es true , simplemente renderizamos el texto **Cargando**, de lo contrario los datos mismos.
 
-![Mostrar datos](https://cdn-images-1.medium.com/max/2592/1*G_SUe17GrnJ8NsKcqEfm9g.png)_Mostrar datos_
+![Mostrar datos](https://cdn-images-1.medium.com/max/2592/1*G_SUe17GrnJ8NsKcqEfm9g.png)*Mostrar datos*
 
-Usé el operador ternario `?`: para expresiones condicionales básicas en línea. Si la loading es true, mostramos **Loading** y si es falso, usamos la función de _map_ para iterar a través de nuestro array de datos para mostrar la información dentro de los elementos `ul` y `li`.
+Usé el operador ternario `?`: para expresiones condicionales básicas en línea. Si la loading es true, mostramos **Loading** y si es falso, usamos la función de *map* para iterar a través de nuestro array de datos para mostrar la información dentro de los elementos `ul` y `li`.
 
 Este es solo un ejemplo básico. Puede usar una instrucción regular if-else y devolver resultados diferentes para su método de representación.
 
-![App.js Final](https://cdn-images-1.medium.com/max/2592/1*Q_sPytXSlxsDH5PLJ01oRg.png)_App.js Final_
+![App.js Final](https://cdn-images-1.medium.com/max/2592/1*Q_sPytXSlxsDH5PLJ01oRg.png)*App.js Final*
 
 Puede consultar el repositorio [apollo-client-with-react](https://github.com/khriztianmoreno/apollo-client-with-react), clonarlo en su computadora y jugar.
 

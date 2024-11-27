@@ -1,11 +1,11 @@
 ---
-title: NodeSchool Learn on your own
+title: 'NodeSchool: Aprende por tu cuenta'
 tags:
   - javascript
   - nodejs
   - tutorial
-date: 2020-01-02 14:18:37
-updated: 2020-01-02 14:18:37
+date: 2020-01-02T14:18:37.000Z
+updated: 2020-01-02T14:18:37.000Z
 ---
 
 A la hora de querer aprender una nueva tecnología o conocer las características de algún lenguaje siempre buscamos en internet algún tutorial que nos enseñe sus conceptos, es por eso que hoy les quiero hablar sobre [NodeSchool.io](http://nodeschool.io/) una iniciativa que busca enseñar por medio de talleres autoguiados el aprendizaje de estos temas.
@@ -24,7 +24,7 @@ Para iniciar con los talleres que provee Node School es necesario que tengas ins
 
 Es recomendable crear un directorio en tu computador con el nombre del taller y acceder a el desde la terminal, luego instalaremos el taller por medio de NPM.
 
-```bash
+```shell
 $ mkdir learnyounode
 $ cd learnyounode
 $ npm install -g learnyounode
@@ -41,7 +41,7 @@ Cuando seleccionamos un ejercicio en este caso “Hello World” tendremos una p
 
 El ejercicio nos recomienda crear un archivo con extension .js (particularmente me gusta nombrar este archivo con el nombre del ejercicio) en este caso creare un archivo llamado helloworld.js donde escribiremos la solución de este. Para verificar que nuestra solucion al ejercicio es correcta debemos ejecutar el comando learnyounode verify helloworld.js a
 
-```bash
+```shell
 $ touch helloworld.js
 $ learnyounode verify helloworld.js
 ```

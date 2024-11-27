@@ -5,15 +5,15 @@ tags:
   - javascript
   - redux
   - tutorial
-date: 2020-01-20 14:59:22
-updated: 2020-01-20 14:59:22
+date: 2020-01-20T14:59:22.000Z
+updated: 2020-01-20T14:59:22.000Z
 ---
 
 It is a lightweight specification that defines the structure of an action, to be implemented in libraries that use the Flux pattern or architecture.
 
 Compliance with **_FSA_** helps developers create abstractions that can work with different implementations of Flux.
 
-![Flux Standard Action — Example](https://miro.medium.com/v2/resize:fit:1376/format:webp/1*iZKJNnbZ1PjiBpJjTd-X0A.png)_**Flux Standard Action — Example**_
+![Flux Standard Action — Example](https://miro.medium.com/v2/resize:fit:1376/format:webp/1*iZKJNnbZ1PjiBpJjTd-X0A.png)**_Flux Standard Action — Example_**
 
 It all started after Facebook published its architecture/pattern [Flux](https://facebook.github.io/flux/), many libraries implemented the Flux philosophy, **Redux** was one of them.
 
@@ -25,7 +25,7 @@ Before delving deeper into today's main topic, let's get to know the concept of 
 
 The specification would lead to the following object:
 
-```js
+```javascript
 {
   type: 'ADD_TODO',
   text: 'TODO content'
@@ -41,15 +41,12 @@ To go into a bit more detail about FSA, it is necessary to start from the follow
 An **action** MUST:
 
 - be a plain JavaScript object.
-
 - have a type property.
 
 An **action** MAY
 
 - have an error property.
-
 - have a payload property.
-
 - have a meta property.
 
 An action MUST NOT include properties other than type, payload, error, and meta.
@@ -85,9 +82,7 @@ The **Flux Standard Action (FSA)** concept is used by some libraries that can he
 ## Libraries
 
 - [redux-actions](https://github.com/acdlite/redux-actions) — a set of helpers to create and handle FSA actions in Redux.
-
 - [redux-promise](https://github.com/acdlite/redux-promise) — A middleware that supports FSA actions.
-
 - [redux-rx](https://github.com/acdlite/redux-rx) — RxJS utilities for Redux, including a middleware that supports FSA actions.
 
 I hope to have the opportunity to give an introduction on how to reduce Redux boilerplate with Redux-Actions in a future occasion.
