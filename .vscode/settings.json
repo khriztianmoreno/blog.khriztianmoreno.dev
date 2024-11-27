@@ -1,0 +1,8 @@
+{
+  "workbench.editor.customLabels.patterns": {
+    "**/src/content/posts/en/**": "${filename}.${extname} - English Posts 🇺🇸",
+    "**/src/content/posts/es/**": "${filename}.${extname} - Spanish Posts 🇨🇴",
+    "**/src/content/info/en/**": "${filename}.${extname} - English info 🇺🇸",
+    "**/src/content/info/es/**": "${filename}.${extname} - Spanish Posts 🇨🇴"
+  }
+}
