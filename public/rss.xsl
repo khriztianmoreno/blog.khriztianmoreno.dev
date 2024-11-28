@@ -88,11 +88,6 @@ See:
                                 Please copy the URL in the address bar of your browser to your RSS
                                 reader.
                             </p>
-                            <p> If you don't know what a RSS reader is, you can read my friend's
-                                article: <a
-                                    href="http://yfi.moe/post/all-about-rss/" target="_blank"
-                                    rel="nofollow">RSS:
-                                    是什么？为什么？怎么用？</a>。 </p>
                         </div>
                     </div>
                     <h2>Recent Items</h2>
