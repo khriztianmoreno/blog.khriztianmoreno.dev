@@ -2,6 +2,8 @@ export const SITE = {
   title: "khriztianmoreno's Blog",
   description: "A blog about development and life, powered by Astro.",
   url: "https://blog.khriztianmoreno.dev",
+  image:
+    "https://res.cloudinary.com/khriztianmoreno/image/upload/v1591324325/KM-brand/card/kristian%20moreno-6_card-front%402x-assets/card-front.png",
   analytics: {
     umami: {
       id: "b6c5d775-fa71-4050-a2b5-dc2396a00cd8",

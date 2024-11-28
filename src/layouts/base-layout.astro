@@ -38,6 +38,19 @@ const pageTitle = title
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={SITE.description} />
+
+    <meta property="og:type" content={"article"} />
+    <meta property="og:url" content={SITE.url} />
+    <meta property="og:description" content={SITE.description} />
+    <meta property="og:image" content={SITE.image} />
+
+    <meta name="twitter:dnt" content="on" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@khriztianmoreno" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={SITE.description} />
+    <meta name="twitter:image" content={SITE.image} />
+
     <script
       is:inline
       type="text/partytown"
