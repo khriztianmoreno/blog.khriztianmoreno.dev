@@ -22,7 +22,9 @@ export default function PostCard({
       href={snapshot.href}
       className="p-8 bg-dracula-dark/20 hover:bg-dracula-dark transition cursor-pointer text-pretty flex flex-col gap-4"
     >
-      <h2 className="font-bold text-3xl text-dracula-pink">{snapshot.title}</h2>
+      <h2 className="font-bold text-3xl text-dracula-green">
+        {snapshot.title}
+      </h2>
       <div className="flex flex-wrap gap-2">
         <DateTag lang={lang} date={snapshot.date} />
         {snapshot.tags.map((tag) => (
