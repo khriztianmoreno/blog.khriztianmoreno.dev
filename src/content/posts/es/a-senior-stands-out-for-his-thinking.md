@@ -44,6 +44,9 @@ Las pruebas técnicas tradicionales tienen su lugar, pero no son suficientes par
 
 **¿Qué piensas sobre esto?** ¿Estás de acuerdo en que las entrevistas técnicas para seniors deberían centrarse más en el análisis de edge cases? ¿Qué otros aspectos consideras importantes para evaluar a un senior?
 
+- Especial agradecimiento por el [ejemplo](https://x.com/fmontes/status/1863583811130343597) a [Freddy Montes](https://x.com/fmontes) 🙏🏻
+- [Taking the Edge off of Edge Cases](https://medium.com/swlh/taking-the-edge-off-of-edge-cases-7b3008d83a57)
+
 ![Profile](https://res.cloudinary.com/khriztianmoreno/image/upload/c_scale,w_148/v1591324337/KM-brand/stickers/sticker-3_2x.png)
 
 #### @khriztianmoreno 🚀
