@@ -2,8 +2,7 @@
 title: A senior stands out for his thinking
 tags:
   - web-programming
-  - tag2
-  - tag3
+  - software-development
 date: 2024-12-02T13:28:26.000Z
 updated: 2024-12-02T13:28:26.000Z
 ---
