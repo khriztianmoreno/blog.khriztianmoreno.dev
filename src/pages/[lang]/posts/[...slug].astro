@@ -2,6 +2,8 @@
 import { getCollection, getEntry } from "astro:content";
 import MarkdownPost from "@/components/markdown-post.astro";
 import TocCard from "@/components/toc-card.tsx";
+
+import PostComments from "@/components/PostComments.astro";
 import BaseLayout from "@/layouts/base-layout.astro";
 import { type Lang, defaultLang, getLangFromUrl, ui } from "@/utils/i18n";
 import { classifyByLangs } from "@/utils/post";
@@ -44,4 +46,5 @@ if (!post) {
     </div>
     <MarkdownPost post={post} lang={lang} headings={headings} />
   </div>
+  <PostComments />
 </BaseLayout>
