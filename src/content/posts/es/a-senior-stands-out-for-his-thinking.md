@@ -1,7 +1,7 @@
 ---
 title: "Un senior destaca por su forma de pensar, no de codear"
 tags:
-  - web-programming
+  - web-development
   - software-development
 date: 2024-12-02T13:28:26.000Z
 updated: 2024-12-02T13:28:26.000Z
