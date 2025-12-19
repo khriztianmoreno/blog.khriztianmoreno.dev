@@ -8,8 +8,8 @@ tags:
   - inp
   - cls
   - chrome-devtools
-date: 2025-12-19 08:41:05
-updated: 2025-12-19 08:41:05
+date: 2025-11-04 08:41:05
+updated: 2025-11-04 08:41:05
 ---
 
 Pages can load fast.
