@@ -8,7 +8,8 @@ tags:
   - crux
   - chrome
   - performance
-  - web-devtools
+  - devtools
+  - chrome-devtools
 date: 2025-10-19 08:13:50
 updated: 2025-10-19 08:13:50
 ---

@@ -8,6 +8,7 @@ tags:
   - mcp
   - debugging
   - performance
+  - chrome-devtools
 date: 2025-09-30 13:10:04
 updated: 2025-09-30 13:13:08
 ---
