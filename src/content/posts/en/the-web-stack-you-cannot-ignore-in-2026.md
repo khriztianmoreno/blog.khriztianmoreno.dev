@@ -55,7 +55,7 @@ In 2026:
 ### Resources
 
 - [Web Vitals](https://web.dev/vitals)
-- [Soft Navigation](https://web.dev/soft-navigation/)
+- [Soft Navigation](https://developer.chrome.com/docs/web-platform/soft-navigations-experiment)
 - [CrUX](https://developer.chrome.com/docs/crux)
 
 ---
@@ -91,9 +91,9 @@ In 2026:
 
 ### Resources
 
-- [FedCM](https://developers.google.com/identity/fedcm)
-- [Passkeys](https://web.dev/passkeys/)
-- [WebAuthn](https://developer.chrome.com/docs/security/webauthn/)
+- [FedCM](https://developer.chrome.com/docs/identity/fedcm/overview)
+- [Passkeys](https://developer.chrome.com/docs/identity/passkeys)
+- [WebAuthn](https://developer.chrome.com/docs/identity/webauthn)
 
 ---
 
@@ -167,7 +167,6 @@ In 2026:
 ### Resources
 
 - [AI in Chrome](https://developer.chrome.com/docs/ai/)
-- [AI on the web](https://web.dev/ai-web/)
 
 ---
 
