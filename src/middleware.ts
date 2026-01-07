@@ -8,6 +8,7 @@ export const userMiddleware = defineMiddleware(async (ctx, next) => {
     path.startsWith("/en") ||
     path.startsWith("/es") ||
     path.startsWith("/posts") ||
+    path.startsWith("/og") ||
     path.startsWith("/rss.xml") ||
     path.startsWith("/robots.txt")
   ) {

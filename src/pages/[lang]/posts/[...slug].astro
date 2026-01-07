@@ -6,7 +6,8 @@ import TocCard from "@/components/toc-card.tsx";
 import PostComments from "@/components/PostComments.astro";
 import BaseLayout from "@/layouts/base-layout.astro";
 import { type Lang, defaultLang, getLangFromUrl, ui } from "@/utils/i18n";
-import { classifyByLangs } from "@/utils/post";
+import { classifyByLangs, getPureSlugFromSlug } from "@/utils/post";
+import { SITE } from "@/config";
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
@@ -37,9 +38,23 @@ if (!post) {
   }
   return Astro.rewrite(`/en/posts/${slug}`);
 }
+
+// Generate OG image URL
+const pureSlug = getPureSlugFromSlug(post.slug);
+const ogImageUrl = new URL(`/og/${pureSlug}.png`, SITE.url).toString();
+const publishedTime = post.data.date.toISOString();
+const postDescription =
+  post.data.description ||
+  `${post.data.title} - A blog post by khriztianmoreno`;
 ---
 
-<BaseLayout title={post.data.title}>
+<BaseLayout
+  title={post.data.title}
+  description={postDescription}
+  ogImage={ogImageUrl}
+  ogType="article"
+  publishedTime={publishedTime}
+>
   <div class="relative">
     <div class="hidden 2xl:block fixed right-10 top-10 w-72">
       <TocCard headings={headings} lang={lang as Lang} client:load />
